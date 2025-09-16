@@ -36,13 +36,15 @@ function App() {
   const toggleClicked = () => setClicked((prev) => !prev);
   return (
     <Wrapper onClick={toggleClicked}>
-      <Box
-        style={{
-          justifyContent: clicked ? "center" : "flex-start",
-          alignItems: clicked ? "center" : "flex-start",
-        }}
-      >
-        <Circle layout />
+      <Box>
+        {!clicked ? (
+          <Circle layoutId="circle" style={{ borderRadius: 50 }} />
+        ) : null}
+      </Box>
+      <Box>
+        {clicked ? (
+          <Circle layoutId="circle" style={{ borderRadius: 0, scale: 2 }} />
+        ) : null}
       </Box>
     </Wrapper>
   );
